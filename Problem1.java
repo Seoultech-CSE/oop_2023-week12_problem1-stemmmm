@@ -4,22 +4,23 @@ public class Problem1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        ArrayList<Double> list = new ArrayList<Double>();
+        ArrayList<String> list = new ArrayList<>();
         System.out.print("Enter five integers and five doubles: ");
 
         for(int i=0; i<10; i++) {
-            list.add(input.nextDouble());
+            String num = input.next();
+            list.add(num);
         }
 
         sort(list);
 
-        for(Double num : list) {
+        for(String num : list) {
             System.out.print(num + " ");
         }
         System.out.println();
     }
 
-    public static void sort(ArrayList<Double> list) {
-        Collections.sort(list);
+    public static void sort(ArrayList<String> list) {
+        list.sort((a, b) -> Double.compare(Double.parseDouble(a), Double.parseDouble(b)));
     }
 }
